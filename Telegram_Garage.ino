@@ -2023,32 +2023,7 @@ void manuell() {
   digitalWrite(torPin, HIGH);
 }
 
-void setup() {
-  MDNS.begin(host);
-  Serial.begin(115200);
-  secured_client.setInsecure();
-  Serial.println(" ");
-  pinMode(rtaster, INPUT_PULLUP);
-  pinMode(torPin, OUTPUT);
-  pinMode(lichtPin, OUTPUT);
-  digitalWrite(lichtPin, HIGH);
-  digitalWrite(torPin, HIGH);
-  delay(10);
-  Serial.setDebugOutput(true);
-  WifiVerbinder();
-  //  Serial.println(WiFi.localIP());
-  secured_client.setTrustAnchors(&cert);
-  Serverstarten();
-  ntp();
-  tokenGetter();
-  webupdater();
-  OTA();
-  Tastdauerchecker();
-  //  wifirssi();
-  // Serial.println(WiFi.SSID());
-}
-
-void Tastdauerchecker() {
+   void Tastdauerchecker() {
   int tord;
   tord = gfs.exists("/tord.txt");
   if (tord == 1) {
@@ -2203,6 +2178,32 @@ void loop() {
   httpServer.handleClient();
   ArduinoOTA.handle(); // Auskommentieren!
   //WifiDeleter();
+}
+
+
+void setup() {
+  MDNS.begin(host);
+  Serial.begin(115200);
+  secured_client.setInsecure();
+  Serial.println(" ");
+  pinMode(rtaster, INPUT_PULLUP);
+  pinMode(torPin, OUTPUT);
+  pinMode(lichtPin, OUTPUT);
+  digitalWrite(lichtPin, HIGH);
+  digitalWrite(torPin, HIGH);
+  delay(10);
+  Serial.setDebugOutput(true);
+  WifiVerbinder();
+  //  Serial.println(WiFi.localIP());
+  secured_client.setTrustAnchors(&cert);
+  Serverstarten();
+  ntp();
+  tokenGetter();
+  webupdater();
+  OTA();
+  Tastdauerchecker();
+  //  wifirssi();
+  // Serial.println(WiFi.SSID());
 }
 
 // Version 2.86 - 05.01.2022 / 23:30
