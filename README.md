@@ -10,3 +10,6 @@ And perhaps it will help you with your project.
 Gevelsberg, January 2023
 
 vy73 de Peter, do8pgg
+
+
+![Alternativer Text](image/photo_2024-01-19_14-04-47.jpg)
